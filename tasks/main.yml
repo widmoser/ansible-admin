@@ -1,0 +1,18 @@
+---
+# tasks file for digitalocean-basic
+
+# add users:
+- name: Add admin group
+  group: name={{ admin_group }}
+- name: Add admin users
+  user:
+    name: "{{ item.username }}"
+    group: "{{ admin_group }}"
+    password: "{{ item.password }}"
+    shell: /bin/bash
+  with_items: "{{ admin_users }}"
+- name: Enable ssh auth for users
+  authorized_key:
+    user: "{{ item.username }}"
+    key: "{{ lookup('file', '{{ item.ssh_key }}') }}"
+  with_items: "{{ admin_users }}"

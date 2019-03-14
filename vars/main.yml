@@ -1,0 +1,4 @@
+---
+# vars file for digitalocean-basic
+security_sudoers_passworded: "{{ admin_users | map(attribute='username') | list }}"
+swapfile_size: 2GB

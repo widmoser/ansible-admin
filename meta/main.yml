@@ -1,0 +1,17 @@
+galaxy_info:
+  author: Hannes Widmoser
+  description: Basic setup for a digitalocean instance, including security hardening and user setup.
+  company: Tiny Desk Development
+
+  license: MIT
+
+  min_ansible_version: 2.0
+
+  platforms:
+    - name: Debian
+      versions:
+        - jessie
+
+  galaxy_tags: []
+
+dependencies: []
